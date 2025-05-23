@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,9 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Smartphone;
 import app.service.SmartphoneService;
+import org.springframework.ui.Model;
+
 
 @RequestMapping("/smartphones")
 @RestController
+@CrossOrigin(origins = "*")
 public class SmartphoneController {
 
 	@Autowired
@@ -53,6 +57,12 @@ public class SmartphoneController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+
+	@GetMapping("/catalog")
+    public String getSmartphonesCard(Model model) {
+        model.addAttribute("smartphones", smartphoneService.listAll());
+        return "smartphones";
+    }
 
 	@PatchMapping("/updateById/{id}")
 	public ResponseEntity<String> updateById(@RequestBody Smartphone smartphone, @PathVariable Long id) {

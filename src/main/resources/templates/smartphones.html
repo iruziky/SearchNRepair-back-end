@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Smartphones</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 2px 2px 6px #aaa;
+            width: 300px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smartphones</h1>
+    <div class="container">
+        <div class="card" th:each="phone : ${smartphones}">
+            <a th:href="${phone.link}" target="_blank">
+                <h2 th:text="${phone.title}">Título</h2>
+            </a>
+            <img th:src="${#strings.split(phone.images, ';')[0]}" alt="Imagem">
+            <p><strong>Preço:</strong> <span th:text="${phone.price}"></span></p>
+            <p><strong>Marca:</strong> <span th:text="${phone.brand}"></span></p>
+            <p><strong>Modelo:</strong> <span th:text="${phone.model}"></span></p>
+            <p><strong>Categoria:</strong> <span th:text="${phone.category}"></span></p>
+            <p><strong>Condição:</strong> <span th:text="${phone.condition}"></span></p>
+            <p><strong>Memória:</strong> <span th:text="${phone.memory}"></span></p>
+            <p><strong>Cor:</strong> <span th:text="${phone.color}"></span></p>
+            <p><strong>Bateria:</strong> <span th:text="${phone.batteryLife}"></span></p>
+            <p><strong>Descrição:</strong> <span th:text="${phone.description}"></span></p>
+        </div>
+    </div>
+</body>
+</html>
