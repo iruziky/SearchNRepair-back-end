@@ -22,6 +22,7 @@ public class Smartphone {
     private String memory;
     private String color;
     private String batteryLife;
+    private boolean isBreak;
     
     @Lob
     @Column
@@ -47,6 +48,7 @@ public class Smartphone {
 	           ", batteryLife='" + batteryLife + '\'' +
 	           ", description='" + description + '\'' +
 	           ", images='" + images + '\'' +
+	           ", images='" + isBreak + '\'' +
 	           '}';
 	}
 	
