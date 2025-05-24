@@ -156,4 +156,12 @@ public class Smartphone {
 	public void setImages(String images) {
 		this.images = images;
 	}
+	
+	public boolean isBreak() {
+		return isBreak;
+	}
+
+	public void setBreak(boolean isBreak) {
+		this.isBreak = isBreak;
+	}
 }
