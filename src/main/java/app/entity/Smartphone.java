@@ -22,7 +22,7 @@ public class Smartphone {
     private String memory;
     private String color;
     private String batteryLife;
-    private boolean isBreak;
+    private boolean isBreak = false;
     
     @Lob
     @Column
