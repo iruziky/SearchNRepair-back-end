@@ -22,6 +22,7 @@ public class Smartphone {
     private String memory;
     private String color;
     private String batteryLife;
+    @Column(columnDefinition = "boolean default false")
     private boolean isBreak = false;
     
     @Lob
