@@ -48,7 +48,7 @@ public class Smartphone {
 	           ", batteryLife='" + batteryLife + '\'' +
 	           ", description='" + description + '\'' +
 	           ", images='" + images + '\'' +
-	           ", images='" + isBreak + '\'' +
+	           ", isBreak='" + isBreak + '\'' +
 	           '}';
 	}
 	
