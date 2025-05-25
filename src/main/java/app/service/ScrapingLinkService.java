@@ -18,6 +18,11 @@ public class ScrapingLinkService {
     public ScrapingLink save(ScrapingLink link) {
         return repository.save(link);
     }
+    
+    public String save(List<ScrapingLink> links) {
+        repository.saveAll(links);
+        return "Lista de links salva com sucesso!";
+    }
 
     public List<ScrapingLink> listAll() {
         return repository.findAll();

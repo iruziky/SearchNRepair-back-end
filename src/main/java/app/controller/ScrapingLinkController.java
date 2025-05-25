@@ -24,6 +24,16 @@ public class ScrapingLinkController {
         ScrapingLink saved = service.save(link);
         return ResponseEntity.ok(saved);
     }
+    
+    @PostMapping("/saveAll")
+    public ResponseEntity<String> save(@RequestBody List<ScrapingLink> links) {
+    	try {
+			String response = service.save(links);
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>("Erro ao adicionar links!", HttpStatus.BAD_REQUEST);
+		}
+    }
 
     @GetMapping("/listAll")
     public ResponseEntity<List<ScrapingLink>> listAll() {
