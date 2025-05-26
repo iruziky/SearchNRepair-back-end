@@ -45,4 +45,8 @@ public class ScrapingLinkService {
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
+    
+    public boolean linkExists(String url) {
+    	return repository.existsByUrl(url);
+    }
 }
