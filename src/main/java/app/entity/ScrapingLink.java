@@ -1,5 +1,6 @@
 package app.entity;
 
+import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,10 +15,12 @@ public class ScrapingLink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
 	private String url;
     private boolean scraped = false;
-    private Integer statusCode;
-    private String errorMessage;
+    private Integer statusCode = null;
+    private String errorMessage = null;
     
     public Long getId() {
 		return id;

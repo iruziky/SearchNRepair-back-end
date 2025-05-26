@@ -25,7 +25,7 @@ public class ScrapingLinkController {
         return ResponseEntity.ok(saved);
     }
     
-    @PostMapping("/saveAll")
+    @PostMapping("/saveList")
     public ResponseEntity<String> save(@RequestBody List<ScrapingLink> links) {
     	try {
 			String response = service.save(links);
